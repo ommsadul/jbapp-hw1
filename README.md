@@ -3,8 +3,8 @@
 Hey! This is my homework project for CS421. I built a simple job board website where people can post jobs and search through listings. It was pretty fun to make and I learned a lot about web development.
 
 ## 🌐 Live Demo
-**[Check out the live website here!](https://USERNAME.github.io/jbapp-hw1/)**
-*(Replace USERNAME with your actual GitHub username)*
+**[Check out the live website here!](https://ommsadul.github.io/jbapp-hw1/)**
+
 
 ## What it does
 
