@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JBApp - Job Board Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Navigation with Login/Signup -->
+    <nav class="top-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <button id="postJobBtn" class="nav-btn post-job">Post Job</button>
+            </div>
+            <div class="nav-right">
+                <button id="loginBtn" class="nav-btn">Sign In</button>
+                <button id="signupBtn" class="nav-btn signup">Sign Up</button>
+                <div id="userMenu" class="user-menu hidden">
+                    <span id="userName" class="user-name"></span>
+                    <button id="logoutBtn" class="nav-btn logout">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Landing Page -->
+    <div id="landingPage" class="landing-page">
+        <div class="landing-content">
+            <h1 class="landing-title">JBApp</h1>
+            <p class="landing-subtitle">Your Gateway to Career Opportunities</p>
+            <button id="enterAppBtn" class="enter-app-btn">Explore Jobs</button>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="mainApp" class="container">
+        <main>
+            <!-- Search and Filter Section -->
+            <section class="search-section">
+                <h2>Search Jobs</h2>
+                <div class="search-controls">
+                    <input type="text" id="searchInput" placeholder="Search by title, company, or keywords...">
+                    <select id="filterPosition">
+                        <option value="">All Position Types</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Contract">Contract</option>
+                        <option value="Internship">Internship</option>
+                    </select>
+                    <button id="clearFilters" class="clear-btn">Clear Filters</button>
+                </div>
+            </section>
+
+            <!-- Job Listings Section -->
+            <section class="job-listings-section">
+                <h2>Job Listings</h2>
+                <div id="jobCount" class="job-count">0 jobs found</div>
+                <div id="jobListings" class="job-listings">
+                    <!-- Job listings will be dynamically inserted here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" id="closeLoginModal">&times;</span>
+            <h2>Sign In</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password:</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="submit-btn">Sign In</button>
+            </form>
+            <p class="modal-footer">
+                Don't have an account? 
+                <a href="#" id="switchToSignup">Sign up here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" id="closeSignupModal">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupName">Full Name:</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email:</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password:</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+            <p class="modal-footer">
+                Already have an account? 
+                <a href="#" id="switchToLogin">Sign in here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Post Job Modal -->
+    <div id="postJobModal" class="modal hidden">
+        <div class="modal-content large-modal">
+            <span class="close" id="closePostJobModal">&times;</span>
+            <h2>Post a New Job</h2>
+            <form id="jobForm" class="job-form">
+                <div class="form-group">
+                    <label for="jobTitle">Job Title *</label>
+                    <input type="text" id="jobTitle" name="jobTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">Company *</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="position">Position Type</label>
+                    <select id="position" name="position">
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Contract">Contract</option>
+                        <option value="Internship">Internship</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" placeholder="e.g., Baltimore, MD">
+                </div>
+                
+                <div class="form-group">
+                    <label for="salary">Salary Range</label>
+                    <input type="text" id="salary" name="salary" placeholder="e.g., $50,000 - $70,000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" id="startDate" name="startDate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Job Description</label>
+                    <textarea id="description" name="description" rows="4" placeholder="Enter job description..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Post Job</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
